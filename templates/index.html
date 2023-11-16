@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/style.css" />
+    <title>Your Grammar Correction Tool</title>
+  </head>
+
+  <body>
+    <div class="head">
+      <h1>Text Intelligence</h1>
+    </div>
+
+    <div class="container">
+      <form method="post" action="/">
+        
+        <textarea class="inputText" name="text" placeholder="Enter text...">{% if text %}{{text}} {% endif %}</textarea>
+        <div class="buttons">
+          <input type="submit" name="action" value="Meaning">
+          <input type="submit" name="action" value="Keyword Extract">
+          <input type="submit" name="action" value="Grammar Correction">
+          <input type="submit" name="action" value="Spell Check">
+          <input type="submit" name="action" value="Email Extract">
+          <input type="submit" name="action" value="Number Extract">
+          <input type="submit" name="action" value="Hash Tag">
+
+        </div>
+      </form>
+
+      <script>
+        function grammarCorrection() {
+          var xhr = new XMLHttpRequest();
+          xhr.open("POST", "/grammer", true);
+          xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+              console.log("Flask route executed successfully");
+            }
+          };
+          xhr.send();
+        }
+
+        function extractEmail() {
+          var xhr = new XMLHttpRequest();
+          xhr.open("POST", "/email", true);
+          xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+              console.log("Flask route executed successfully");
+            }
+          };
+          xhr.send();
+        }
+
+        function extractNumber() {
+          var xhr = new XMLHttpRequest();
+          xhr.open("POST", "/number", true);
+          xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+              console.log("Flask route executed successfully");
+            }
+          };
+          xhr.send();
+        }
+
+        function extractKeywords() {
+          var xhr = new XMLHttpRequest();
+          xhr.open("POST", "/number", true);
+          xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+              console.log("Flask route executed successfully");
+            }
+          };
+          xhr.send();
+        }
+
+        function extractMeaning() {
+          var xhr = new XMLHttpRequest();
+          xhr.open("POST", "/meaning", true);
+          xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+              console.log("Flask route executed successfully");
+            }
+          };
+          xhr.send();
+        }
+
+        function spellCheck() {
+          var xhr = new XMLHttpRequest();
+          xhr.open("POST", "/spell", true);
+          xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+              console.log("Flask route executed successfully");
+            }
+          };
+          xhr.send();
+        }
+
+        function findHashtag() {
+          var xhr = new XMLHttpRequest();
+          xhr.open("POST", "/spell", true);
+          xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+              console.log("Flask route executed successfully");
+            }
+          };
+          xhr.send();
+        }
+
+      </script>
+      <div id="output-main">
+      <div id="output">
+        <h3 style="margin-left: 45%;">OUTPUT</h3>
+        {% if result %}
+        {% if result is string %}
+            <p>{{ result }}</p>
+        {% elif result is iterable %}
+            {% for x in result %}
+                <p>{{ x }}</p>
+            {% endfor %}
+        {% endif %}
+      {% endif %}
+      </div>
+      </div>
+    </div>
+  </body>
+</html>
